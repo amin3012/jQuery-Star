@@ -67,7 +67,7 @@ input[type="radio"]{
 </head>
 <body>
         <div class="container">
-            <form method="post">
+            <form method="post" id="ratingForm">
                 <div class="row">
                   <div class="panel panel-default col-xs-12 col-md-4 col-md-offset-4">
                       <div class="panel-body frame1">
@@ -190,8 +190,27 @@ input[type="radio"]{
      $(this).prevUntil("h1").css("color","#FFDFAA");
      $(this).nextAll().css("color","#7F6A15");
     
+     formData = $("#ratingForm").serializeArray();
+     console.log(formData);
+     var o = {};
+     $.each(formData, function () {
+        o[this.name]=this.value;
+         console.log(this.name);
+        //For Make Sure Values are available or not you can check through condition START
+        // o[this.name].push(this.value);
+        // if (o[this.name] !== undefined) {
+        //     if (!o[this.name].push) {
+        //         o[this.name] = [o[this.name]];
+        //     }      
+        //     o[this.name].push(this.value || '');
+        // } else {
+        //     o[this.name] = this.value || '';
+        // }
+        //For Make Sure Values are available or not you can check through condition END
+
+    });
+    console.log(o);
    });
-   
    </script>
 </html>
 
